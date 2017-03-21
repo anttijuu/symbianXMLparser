@@ -1,0 +1,51 @@
+/*
+ * $Id: XMLParser.mmp 1158 2009-03-12 18:17:33Z antti $
+ *
+ * Created 2008/05/28 by Antti Juustila
+ *
+ * Version: LGPL 3
+ *
+ * This file is part of XMLParser dll.
+ *
+ * XMLParser is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU Lesser General Public License as
+ * published by the Free Software Foundation, either version 3 of
+ * the License, or (at your option) any later version.
+ *
+ * XMLParser is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with KMLParser.  If not, see <http://www.gnu.org/licenses/>.
+ *
+ * Copyright (C) 2008 University of Oulu, Antti Juustila (antti)
+ */
+
+TARGET		  XMLParser_0xA0008D82.dll
+TARGETTYPE	  DLL
+UID 0x1000008d 0xA0008D82
+
+CAPABILITY LocalServices Location NetworkServices ReadUserData UserEnvironment WriteUserData
+
+
+USERINCLUDE		..\inc
+USERINCLUDE		..\..\DebugLogger
+
+SYSTEMINCLUDE   \epoc32\include
+
+SOURCEPATH	  ..\src
+
+SOURCE		  XMLParser.cpp
+SOURCE		  XMLParserDllMain.cpp
+SOURCE 		  XmlElement.cpp
+SOURCE		  KeyValue.cpp XmlDocument.cpp ConversionUtils.cpp
+
+EXPORTUNFROZEN
+
+LIBRARY		 euser.lib bafl.lib efsrv.lib xmlframework.lib charconv.lib inetprotutil.lib
+
+LIBRARY	  DebugLogger_0xA0005676.lib
+
+NOSTRICTDEF
